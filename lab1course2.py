@@ -19,13 +19,12 @@ class Apple:
             raise TypeError("Количество мест в корзине должно быть типа int")
         if space_in_basket < 0:
             raise ValueError("Количество мест в корзине не может быть отрицательным числом")
-        self.space_in_basket = space_in_basket
 
         if not isinstance(quantity, int):
             raise TypeError("Количество яблок должно быть int")
         if quantity < 0:
             raise ValueError("Количество яблок не может быть отрицательным числом")
-        self.quantity = quantity
+
     def is_empty_basket(self) -> bool:
         """
                Функция которая проверяет, является ли корзина пустой
@@ -72,13 +71,12 @@ class Exam:
             raise TypeError("Набранные баллы должны быть типа int")
         if scored_points < 0:
             raise ValueError("Количество набарнных баллов не может быть отрицательным числом")
-        self.scored_points = scored_points
 
         if not isinstance(passing_score, int):
             raise TypeError("Проходной балл должен быть int")
         if passing_score < 0:
             raise ValueError("Проходной балл не может быть отрицательным числом")
-        self.passing_score = passing_score
+
 
     def add_points(self, added_points: int) -> None:
         """
@@ -131,13 +129,13 @@ class BlackCat:
             raise TypeError("Количество черных котов должно быть типа int")
         if black < 0:
             raise ValueError("Количество черных котов не может быть отрицательным числом")
-        self.black = black
+
 
         if not isinstance(quantity, int):
             raise TypeError("Количество котов должно быть int")
         if quantity < 0:
             raise ValueError("Количество котов не может быть отрицательным числом")
-        self.quantity = quantity
+
     def add_black_cat(self, black_cats: int) -> None:
         """
         Добавление котов.
@@ -154,6 +152,29 @@ class BlackCat:
         if black_cats < 0:
             raise ValueError("Добавляемое количество черных котов должно быть положительным числом")
         ...
+
+    def meow(self, cat_meow: str, quantity: int):
+        self.cat_meow = cat_meow
+
+        """
+        Функция, которая вызывает мяуканье кота.
+
+        :param cat_meow: Мяуканье
+
+        :param quantity: Количество котов
+        :raise ValueError: Если количество котов меньше единицы, то мяукать некому, поэтому вызываем ошибку
+
+        :return: Кот мяукает
+
+        Примеры:
+        >>> cat = BlackCat("Мяу!", 1)
+        >>> cat.meow()
+        """
+
+        if quantity < 1:
+            raise ValueError("Количество котов не может быть меньше единицы")
+        if quantity >= 1:
+            cat_meow = "Мяу!"
 
 if __name__ == "__main__":
     # TODO работоспособность экземпляров класса проверить с помощью doctest
